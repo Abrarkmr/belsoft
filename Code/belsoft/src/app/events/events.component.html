@@ -1,0 +1,15 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="menu">
+        <app-menu></app-menu>
+        
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+        <app-header></app-header>
+      <p><button mat-button (click)="sidenav.toggle()" class="menu-button"><mat-icon>reorder</mat-icon></button></p>
+      <p>Events:</p>
+
+
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

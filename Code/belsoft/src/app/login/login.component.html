@@ -1,0 +1,18 @@
+<div class="outerDiv">
+    <div class="innerDiv">
+        <p class="headline">Login</p>
+        <mat-form-field appearance="outline" style="display: block">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Type here.." [(ngModel)]="validateUserReq.email" name="email" id="email" type="">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="display: block">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Type here.." [(ngModel)]="validateUserReq.password" name="password" id="password" type="password">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <div class="btnn">
+            <button mat-flat-button color="accent" (click)="login()">Login</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.menu {
+    width: 22vw;
+}
+
+.menu-button {
+    position: absolute;
+    top: 12px;
+    left: 23px;
+    color: white;
+}
+
+
+.outerDiv {
+    border: 2px solid green;
+    width: 60%;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 10vh;
+}
+
+.innerDiv {
+    padding: 10px 50px;
+}
+
+.headline {
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+    color: brown;
+}
+
+.btnn {
+    text-align: center;
+}

@@ -1,0 +1,24 @@
+<div class="outerDiv">
+    <div class="innerDiv">
+        <p class="headline">Register</p>
+        <mat-form-field appearance="outline" style="display: block">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Type here.." [(ngModel)]="addMyUserReq.name"  name="name" id="name" type="text">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="display: block">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Type here.." [(ngModel)]="addMyUserReq.email" name="email" id="email" type="">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="display: block">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Type here.." [(ngModel)]="addMyUserReq.password" name="password" id="password" type="password">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <div class="btnn">
+            <button mat-flat-button color="accent" (click)="addEvent()">Add User</button>
+        </div>
+        <p class="bottom">Already have an account? <a href="" routerLink="/login">Login</a> </p>
+    </div>
+</div>

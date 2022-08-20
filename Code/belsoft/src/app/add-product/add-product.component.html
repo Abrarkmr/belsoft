@@ -1,0 +1,48 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="menu">
+        <app-menu></app-menu>
+        
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+        <app-header></app-header>
+      <p><button mat-button (click)="sidenav.toggle()" class="menu-button"><mat-icon>reorder</mat-icon></button></p>
+     
+
+      <div class="outerDiv">
+        <div class="innerDiv">
+            <p class="headline">Add Product</p>
+            <mat-form-field appearance="outline" style="display: block">
+                <mat-label>Product Name</mat-label>
+                <input matInput placeholder="Type here.." [(ngModel)] = "addProductReq.title" name="title" id="title" type="text">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="display: block">
+                <mat-label>Price</mat-label>
+                <input matInput placeholder="Type here.." [(ngModel)] = "addProductReq.price" name="price" id="price" type="text">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="display: block">
+                <mat-label>Quantity</mat-label>
+                <input matInput placeholder="Type here.." [(ngModel)] = "addProductReq.quantity" name="quantity" id="quantity" type="text">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="display: block">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="Type here.." [(ngModel)] = "addProductReq.desc" name="desc" id="desc" type="text">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <div>
+                <input type="file" (change)="uploadS3($event)">
+            </div>
+            <div class="btnn">
+                <button mat-flat-button color="accent" (click)="addItem()">Add</button>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
