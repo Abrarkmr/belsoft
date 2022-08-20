@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../service/data.service';
+import { DataService } from '../../service/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ export class HeaderComponent implements OnInit {
   icon: boolean = true;
   
   constructor(
-    public data: DataService
+    public data: DataService,
+    private router: Router,
   ) {
     
    }
@@ -22,6 +24,10 @@ export class HeaderComponent implements OnInit {
 
   getCount(){
     this.data.sendToheader()
+  }
+
+  cart(){
+    this.router.navigate(['cart'])
   }
 
 }

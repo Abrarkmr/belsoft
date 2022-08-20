@@ -10,6 +10,7 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  opened: boolean = true;
 
   fetchCartReq: any = {};
   fetchCartRes: any = {};

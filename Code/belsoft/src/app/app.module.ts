@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {HeaderComponent} from './header/header.component';
-import {MenuComponent} from './menu/menu.component';
 import {AddProductComponent} from './add-product/add-product.component'
 
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -27,6 +25,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatBadgeModule} from '@angular/material/badge';
 import { CartComponent } from './cart/cart.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -34,8 +33,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     EventsComponent,
     LoginComponent,
     RegisterComponent,
-    HeaderComponent,
-    MenuComponent,
     AddProductComponent,
     CartComponent,
     DashboardComponent
@@ -55,7 +52,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatBadgeModule,
-    MatTooltipModule
+    MatTooltipModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

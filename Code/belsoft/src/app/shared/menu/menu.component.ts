@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatAccordion} from '@angular/material/expansion';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -8,9 +8,21 @@ import {MatAccordion} from '@angular/material/expansion';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  home(){
+    this.router.navigate(['dashboard'])
+  }
+  events(){
+    this.router.navigate(['events'])
+  }
+  product(){
+    this.router.navigate(['addProduct'])
   }
 
 }
