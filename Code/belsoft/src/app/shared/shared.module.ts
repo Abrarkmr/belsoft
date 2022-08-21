@@ -4,7 +4,8 @@ import {HeaderComponent} from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import {MatBadgeModule} from '@angular/material/badge';
   imports: [
     CommonModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatTooltipModule,
+    MatMenuModule
   ],
   exports: [
     HeaderComponent,
