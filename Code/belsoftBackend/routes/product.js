@@ -191,7 +191,8 @@ router.post('/fetchCart',(req,res) =>{
     function getProducts(){
         return new Promise((resolve,reject)=>{
             cart.find({email: email},{__v: 0},(err,response)=>{
-                if(response.length >  1){
+                fetchCartRes.count = response.length;
+                if(response.length > 0){
                     fetchCartRes.products = response;
                     resolve()
                 }
