@@ -11,10 +11,15 @@ import { environment } from '../../environments/environment';
 })
 export class CartComponent implements OnInit {
   opened: boolean = true;
+  showTable: boolean = true;
 
   fetchCartReq: any = {};
-  fetchCartRes: any = {};
+  fetchCartRes: any = [];
   fetchCartUrl: string = environment.itemUrl + 'fetchCart';
+
+  removeCartReq: any = {};
+  removeCartRes: any = {};
+  removeCartUrl: string = environment.itemUrl + 'removeCart';
 
   constructor(
     private data: DataService,
@@ -24,7 +29,6 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(JSON.stringify(this.data.fetchCartData()))
     this.getProducts()
   }
 
@@ -32,12 +36,30 @@ export class CartComponent implements OnInit {
     this.http.post(this.fetchCartUrl,this.fetchCartReq).subscribe(res=>{
       this.fetchCartRes = res;
       if(this.fetchCartRes.status == "success"){
-        alert(JSON.stringify(this.fetchCartRes))
+        this.fetchCartRes =  this.fetchCartRes.products;
       
       }
     },err=>{
       alert(err)
     })
+  }
+
+  removeIt(tempId: any, productId: any){
+    this.showTable = false;
+    this.removeCartReq.tempId = tempId;
+    this.removeCartReq.id = productId;
+    this.http.delete(this.removeCartUrl,{body: this.removeCartReq}).subscribe(res=>{
+      this.removeCartRes = res;
+      if(this.removeCartRes.status == "success"){
+        this.getProducts();
+        this.showTable = true;
+        alert(this.removeCartRes.message)
+      }
+    },err=>{
+      alert(err)
+      this.showTable = true;
+    })
+    this.showTable = true;
   }
 
 }

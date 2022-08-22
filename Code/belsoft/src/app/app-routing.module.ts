@@ -9,14 +9,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
-  { path: '' , component: DashboardComponent},
+  { path: '' , component: LoginComponent},
   { path: 'dashboard' , component: DashboardComponent},
   { path: 'events' , component: EventsComponent},
   { path: 'login' , component: LoginComponent},
   { path: 'register' , component: RegisterComponent},
   { path: 'addProduct' , component: AddProductComponent},
   { path: 'cart' , component: CartComponent},
-  { path: '**' , component: RegisterComponent}
+  { path: '**' , component: LoginComponent}
 ];
 
 @NgModule({
