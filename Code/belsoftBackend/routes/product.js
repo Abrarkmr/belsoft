@@ -161,6 +161,7 @@ router.post('/addToCart', (req,res) =>{
 router.delete('/removeCart', (req,res) =>{
     const tempId = req.body.tempId;
     const id = req.body.id;
+    const email = req.body.email;
     const removeCartRes = {};
 
     function calcQuantity(){
@@ -182,6 +183,18 @@ router.delete('/removeCart', (req,res) =>{
         })
     }
 
+    function getCartCount(){
+        return new Promise((resolve,reject)=>{
+            cart.find({email: email},{__v: 0},(err,response)=>{
+                removeCartRes.count = response.length;
+                resolve();   
+                if(err){
+                    reject(err)
+                } 
+            })
+        })
+    }
+
     function sendResponse(){
         return new Promise((resolve,reject)=>{
             removeCartRes.message = "Product Removed From Cart";
@@ -192,6 +205,7 @@ router.delete('/removeCart', (req,res) =>{
     }
 
     calcQuantity()
+        .then(getCartCount)
         .then(sendResponse)
         .catch(err=>{
             res.json(err)
