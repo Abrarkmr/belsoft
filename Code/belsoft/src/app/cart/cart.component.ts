@@ -13,6 +13,8 @@ export class CartComponent implements OnInit {
   opened: boolean = true;
   showTable: boolean = true;
 
+  countt: any = 0;
+
   fetchCartReq: any = {};
   fetchCartRes: any = [];
   fetchCartUrl: string = environment.itemUrl + 'fetchCart';
@@ -48,9 +50,11 @@ export class CartComponent implements OnInit {
     this.showTable = false;
     this.removeCartReq.tempId = tempId;
     this.removeCartReq.id = productId;
+    this.removeCartReq.email = this.data.fetchEmail();
     this.http.delete(this.removeCartUrl,{body: this.removeCartReq}).subscribe(res=>{
       this.removeCartRes = res;
       if(this.removeCartRes.status == "success"){
+        this.data.count = this.removeCartRes.count;
         this.getProducts();
         this.showTable = true;
         alert(this.removeCartRes.message)
@@ -61,5 +65,7 @@ export class CartComponent implements OnInit {
     })
     this.showTable = true;
   }
+
+
 
 }

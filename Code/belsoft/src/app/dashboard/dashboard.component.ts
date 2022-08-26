@@ -47,13 +47,12 @@ export class DashboardComponent implements OnInit {
 
   adder(id: any){
     this.addToCartReq.id = id;
+    this.addToCartReq.email = this.data.fetchEmail();
     this.http.post(this.addToCartUrl,this.addToCartReq).subscribe(res=>{
       this.addToCartRes = res;
       if(this.addToCartRes.status == "success"){
-        this.data.setCartData(this.addToCartRes)
-        this.countt++
-        localStorage.setItem('count', JSON.stringify(this.countt))
-        this.data.callCount();
+        this.data.count = this.addToCartRes.count;
+        alert(this.addToCartRes.message)
       }
     },err=>{
       alert(err)
@@ -61,11 +60,6 @@ export class DashboardComponent implements OnInit {
    
   }
 
-  remove(){
-    this.countt--
-   localStorage.setItem('count', JSON.stringify(this.countt))
-   this.data.callCount();
-  }
 
   fetchProducts(){
     this.http.post(this.viewProductsUrl,this.viewProductsReq).subscribe(res=>{

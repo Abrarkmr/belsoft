@@ -13,15 +13,8 @@ export class DataService {
 
   constructor() { }
 
-  callCount(){
-    this.count = localStorage.getItem('count');
-    this.count = JSON.parse(this.count);
-    this.sendToheader()
-  }
 
   sendToheader(){
-    this.count = localStorage.getItem('count');
-    this.count = JSON.parse(this.count);
     return this.count
   }
 

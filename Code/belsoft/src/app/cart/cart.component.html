@@ -12,14 +12,15 @@
     </p>
 
     <!-- main content starts-->
-
-    <div class="container" *ngFor="let card of fetchCartRes">
-      <div *ngIf="showTable">
+    <div *ngIf="showTable">
+      <div class="container" *ngFor="let card of fetchCartRes">
         <div class="info">
           <h1>Article News Card</h1>
-          <span>Made with <i class="fa fa-heart animated infinite pulse"></i> by
+          <span
+            >Made with <i class="fa fa-heart animated infinite pulse"></i> by
             <a href="http://andy.design">Andy Tran</a> | Designed by
-            <a href="http://justinkwak.com">JustinKwak</a></span>
+            <a href="http://justinkwak.com">JustinKwak</a></span
+          >
         </div>
         <!-- Normal Demo-->
         <div class="column">
@@ -29,7 +30,11 @@
             <!-- Thumbnail-->
             <div class="thumbnail">
               <div class="date">
-                <div class="day" matTooltip="Remove from cart" (click)="removeIt(card.tempId, card.productId)">
+                <div
+                  class="day"
+                  matTooltip="Remove from cart"
+                  (click)="removeIt(card.tempId, card.productId)"
+                >
                   X
                 </div>
                 <!-- <div class="month">Mar</div> -->
@@ -47,8 +52,12 @@
                 and countless dazzling skyscrapers.
               </p>
               <div class="post-meta">
-                <span class="timestamp"><i class="fa fa-clock-"></i> {{ card.email }}</span><span class="comments"><i
-                    class="fa fa-comments"></i><a href="#">Price : {{ card.price }}</a></span>
+                <span class="timestamp"
+                  ><i class="fa fa-clock-"></i> {{ card.email }}</span
+                ><span class="comments"
+                  ><i class="fa fa-comments"></i
+                  ><a href="#">Price : {{ card.price }}</a></span
+                >
               </div>
             </div>
           </div>
