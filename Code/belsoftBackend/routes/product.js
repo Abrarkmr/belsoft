@@ -99,6 +99,7 @@ router.post('/viewProducts', (req,res)=>{
 
 router.post('/addToCart', (req,res) =>{   
     const id = req.body.id;
+    const email = req.body.email;
     const addToCartRes = {};
 
     function calcQuantity(){
@@ -128,6 +129,18 @@ router.post('/addToCart', (req,res) =>{
         })
     }
 
+    function getCartCount(){
+        return new Promise((resolve,reject)=>{
+            cart.find({email: email},{__v: 0},(err,response)=>{
+                addToCartRes.count = response.length;
+                resolve();   
+                if(err){
+                    reject(err)
+                } 
+            })
+        })
+    }
+
     function sendResponse(){
         return new Promise((resolve,reject)=>{
             addToCartRes.message = "Product Added To Cart";
@@ -138,6 +151,7 @@ router.post('/addToCart', (req,res) =>{
     }
 
     calcQuantity()
+        .then(getCartCount)
         .then(sendResponse)
         .catch(err=>{
             res.json(err)
