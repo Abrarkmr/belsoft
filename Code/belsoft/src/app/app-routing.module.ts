@@ -6,10 +6,12 @@ import { RegisterComponent } from './register/register.component';
 import {AddProductComponent} from './add-product/add-product.component';
 import { CartComponent } from './cart/cart.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminGuard } from 'src/guard/admin.guard';
 
 
 const routes: Routes = [
-  { path: '' , component: LoginComponent},
+  // { path: '' , component: LoginComponent, canActivate:[AdminGuard]},
+  { path: '' , component: DashboardComponent,canActivate:[AdminGuard]},
   { path: 'dashboard' , component: DashboardComponent},
   { path: 'events' , component: EventsComponent},
   { path: 'login' , component: LoginComponent},

@@ -9,7 +9,7 @@
                 <ul>
                     <li><img [matMenuTriggerFor]="menu" src="https://pdflinker.s3.ap-south-1.amazonaws.com/sal.jpg" width="40" height="40">
                         <mat-menu #menu="matMenu">
-                            <button mat-menu-item>Item 1</button>
+                            <button mat-menu-item (click)="logout()">LOG OUT</button>
                             <button mat-menu-item>Item 2</button>
                           </mat-menu>
                     </li>

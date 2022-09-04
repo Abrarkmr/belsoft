@@ -29,4 +29,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['cart'])
   }
 
+  logout(){
+    localStorage.removeItem('token-belsoft');
+    localStorage.removeItem('login');
+    this.router.navigate(['login'])
+  }
+
 }

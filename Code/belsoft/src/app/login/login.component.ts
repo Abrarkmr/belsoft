@@ -21,11 +21,11 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     private router: Router
   ) {
-    this.checklogin = localStorage.getItem('token-belsoft');
-    if(this.checklogin != null){
-      this.checklogin = JSON.parse(this.checklogin);
-      this.router.navigate(['dashboard'])
-    }
+    // this.checklogin = localStorage.getItem('token-belsoft');
+    // if(this.checklogin != null){
+    //   this.checklogin = JSON.parse(this.checklogin);
+    //   this.router.navigate(['dashboard'])
+    // }
    }
 
   ngOnInit(): void {
@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
       this.validateUserRes = res;
       if(this.validateUserRes.status == "success"){
         localStorage.setItem("token-belsoft", JSON.stringify(this.validateUserRes.email));
-        this.router.navigate(['/home'])
+        localStorage.setItem("login", JSON.stringify(true));
+        this.router.navigate(['/dashboard'])
         const Toast = Swal.mixin({
           toast: true,
           position: 'top-end',
