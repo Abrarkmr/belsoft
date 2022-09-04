@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
   fetchCartUrl: string = environment.itemUrl + 'fetchCart';
 
   removeCartReq: any = {};
-  removeCartRes: any = {};
+  removeCartRes: any = [];
   removeCartUrl: string = environment.itemUrl + 'removeCart';
 
   constructor(
@@ -37,9 +37,10 @@ export class CartComponent implements OnInit {
   getProducts(){
     this.http.post(this.fetchCartUrl,this.fetchCartReq).subscribe(res=>{
       this.fetchCartRes = res;
+      console.log(JSON.stringify(this.fetchCartRes))
+      localStorage.setItem('cCount',this.fetchCartRes.count)
       if(this.fetchCartRes.status == "success"){
         this.fetchCartRes =  this.fetchCartRes.products;
-      
       }
     },err=>{
       alert(err)

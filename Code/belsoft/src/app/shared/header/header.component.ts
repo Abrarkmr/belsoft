@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  count = 20;
   icon: boolean = true;
   
   constructor(

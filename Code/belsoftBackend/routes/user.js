@@ -18,7 +18,6 @@ router.post('/addMyUser', function(req,res){
 
     function fetchEmails(){
         return new Promise((resolve,reject) =>{
-            console.log("1")
             user.find({status:"active"}, function(err,ress){
                 if(err){
                     reject("Error in Checking DB")

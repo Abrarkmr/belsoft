@@ -51,6 +51,7 @@ export class DashboardComponent implements OnInit {
     this.http.post(this.addToCartUrl,this.addToCartReq).subscribe(res=>{
       this.addToCartRes = res;
       if(this.addToCartRes.status == "success"){
+        localStorage.setItem('cCount',this.addToCartRes.count)
         this.data.count = this.addToCartRes.count;
         alert(this.addToCartRes.message)
       }
@@ -60,12 +61,14 @@ export class DashboardComponent implements OnInit {
    
   }
 
-
   fetchProducts(){
     this.http.post(this.viewProductsUrl,this.viewProductsReq).subscribe(res=>{
       this.viewProductsRes = res;
+      if(this.viewProductsRes=="No products found for the user. Try adding the products."){
+        alert("No products found for the user. Try adding the products.")
+      }
       if(this.viewProductsRes.status == "success"){
-        this.myProducts = this.viewProductsRes
+        this.myProducts = this.viewProductsRes;       
       }
     },err=>{
       alert(err)

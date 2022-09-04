@@ -16,6 +16,11 @@ app.use('/user' , users);
 const port = 2000;
 const mongoUrl = "mongodb://localhost:27017/Belsoft";
 
+const ngrok = require('ngrok');
+(async function() {
+  const url = await ngrok.connect();
+})();
+
 app.get('/', function (req, res) {
     res.send('Hello World')
 })

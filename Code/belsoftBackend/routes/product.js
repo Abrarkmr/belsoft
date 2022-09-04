@@ -1,9 +1,14 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
+var cors = require('cors');
+app.use(cors());
 const ProductTable = require('../models/product-model');
 const cart = require('../models/cart-model');
 
+router.post('/ss', (req,res)=>{
+    res.send('Insideee')
+})
 
 router.post('/addProduct', (req,res)=>{
     const name = req.body.title;
@@ -69,7 +74,7 @@ router.post('/viewProducts', (req,res)=>{
     function getProducts(){
         return new Promise((resolve,reject)=>{
             ProductTable.find({status: "active",email: email},{__v: 0},(err,response)=>{
-                if(response.length >  1){
+                if(response.length >=  1){
                     viewProductsRes.products = response;
                     resolve()
                 }
@@ -77,7 +82,7 @@ router.post('/viewProducts', (req,res)=>{
                     reject("No products found for the user. Try adding the products.")
                 }
                 
-            })
+            }) 
         })
     }
 
@@ -225,7 +230,7 @@ router.post('/fetchCart',(req,res) =>{
                     resolve()
                 }
                 else{
-                    reject("No products in the cart")
+                    reject({"message":"No products in the cart","count":fetchCartRes.count})
                 }
                 
             })

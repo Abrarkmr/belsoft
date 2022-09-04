@@ -15,6 +15,8 @@ export class DataService {
 
 
   sendToheader(){
+    this.count = localStorage.getItem("cCount");
+    this.count = JSON.parse(this.count)
     return this.count
   }
 
